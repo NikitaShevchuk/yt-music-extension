@@ -1,0 +1,19 @@
+{
+  "name": "Youtube Music volume control",
+  "version": "0.0.1",
+  "description": "Youtube Music volume control",
+  "manifest_version": 3,
+  "author": "Nikita Shevchuk",
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_title": "Control Volume"
+  },
+  "permissions": ["tabs", "scripting"],
+  "content_scripts": [
+    {
+      "js": ["src/volume-listener.js"],
+      "matches": ["https://music.youtube.com/*"]
+    }
+  ],
+  "background.service_worker": { "scripts": ["hot-reload.js"] }
+}
